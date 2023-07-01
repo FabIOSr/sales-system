@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('denominations', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['BILHETE','DINHEIRO','CARTAO', 'OUTRO', "CHEQUE",'PIX'])->default('BILHETE');
-            $table->string('value');
+            $table->enum('type', ['BILHETE','DINHEIRO','OUTRO'])->default('BILHETE');
+            $table->decimal('value',10,2);
             $table->string('image')->nullable();
             $table->timestamps();
         });

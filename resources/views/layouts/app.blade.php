@@ -11,6 +11,10 @@
 
       <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('plugins/sweetalerts/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/notification/snackbar/snackbar.min.css') }}">
+    @stack('_css')
+    @livewireStyles
 </head>
 <body>
     <div id="app">
@@ -27,16 +31,34 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('HomeWork') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Categorias') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Dashboard') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Produtos') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Products') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Vendas') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Sales') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Roles') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Permissões') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Designar') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Usuários') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Moedas') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Arqueos') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Relatórios') }}</a>
                         </li>
                     </ul>
 
@@ -65,7 +87,17 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Profile Info') }}
+                                        {{ __('Minha Área') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Caixa de Email') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Bloquear Tela') }}
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -89,5 +121,20 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('plugins/sweetalerts/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('plugins/notification/snackbar/snackbar.min.js') }}"></script>
+    @livewireScripts
+    <script>
+        function noty(msg, option=1){
+            Snackbar.show({
+                text:msg.toUpperCase(),
+                actionText: 'Encerrar',
+                actionTextColor:'#fff',
+                backgroundColor:option ==1 ? '#3b3f5c':'#e7515a',
+                pos:'top-right'
+            });            
+        }
+    </script>
+    @stack('_js')
 </body>
 </html>

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('password');
             $table->enum('profile', ['ADMIN', 'EMPLOYEE'])->default('ADMIN');
             $table->enum('status', ['ACTIVE', 'LOCKED'])->default('ACTIVE');
-            $table->string('phone');
-            $table->string('image');
+            $table->string('phone')->nullable();
+            $table->string('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
