@@ -31,7 +31,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Categorias') }}</a>
+                            <a class="nav-link" href="{{ route('categories') }}">{{ __('Categorias') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Produtos') }}</a>
